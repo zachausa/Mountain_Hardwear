@@ -4,7 +4,7 @@
  *   cast - string cast holding the cast members.
  *   teaser - string teaser narrative describing the movie.
  */
-function renderNewCard(image, cast, teaser) {
+function renderNewCard(image, cast, teaser, author) {
   var cardElement = $('<div>', {class: 'card'});
   cardElement.css('background-image', 'url(' + image + ')');
 
@@ -14,8 +14,12 @@ function renderNewCard(image, cast, teaser) {
   var teaserElement = $('<div>', {class: 'teaser'});
   teaserElement.text(teaser);
 
+  var authorElement = $('<div>', {class: 'author'});
+  authorElement.text(author);
+
   cardElement.append(castElement);
   cardElement.append(teaserElement);
+  teaserElement.append(authorElement);
 
   $('body').append(cardElement);
 }
@@ -34,7 +38,7 @@ function processFlickrData(data) {
   var items = data.items;
   for (var i = 0; i < items.length; i++) {
     console.log(items[i])
-    renderNewCard(items[i].media.m, items[i].title, items[i].tags)
+    renderNewCard(items[i].media.m, items[i].title, items[i].tags, items[i].author)
 
   };
 }
