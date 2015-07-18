@@ -49,6 +49,8 @@ body {
   font-family: sans-serif;
   font-weight: lighter;
   font-size: 13px;
+  display: inline-block;
+  margin-right: 28px;
 }
 
 .cast {
